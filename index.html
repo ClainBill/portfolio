@@ -188,7 +188,7 @@ footer .big{font-family:var(--serif);font-size:24px;color:var(--ink);margin-bott
 <footer><div class="wrap">
   <div class="big">willcharlesgill@gmail.com</div>
   <div>+1 (385) 208-2924 · Provo, Utah · <a href="https://github.com/ClainBill">github.com/ClainBill</a> · <a href="https://wcgill.com">wcgill.com</a></div>
-  <p style="max-width:70ch;margin-top:14px">Private repositories are named so you can ask to see them. Sales, mission and school details come from my CV; everything about a project comes from the project.</p>
+  <p style="max-width:70ch;margin-top:14px">Every project links to its public repository. Sales, mission and school details come from my CV; everything about a project comes from the project.</p>
 </div></footer>
 
 <script>
@@ -198,7 +198,7 @@ const P = [
   what:"A TI-84 Plus SE emulator I had built from scratch so an AI agent can write a calculator game, compile it with the real Axe compiler running inside the emulator, play it with scripted key presses and read the screen back. Nobody has to hold the calculator.",
   points:["Z80 CPU core passes SingleStepTests (1.6M cases), ZEXDOC and ZEXALL","<code>ti84 test game.axe</code> returns a JSON report with screenshots in about half a second","Shared live session: I can take the calculator off the agent at any moment","Grew into a web IDE, an Android port and Night Shift, an original 16 KB game"],
   stack:["C11","CMake","Z80","Python","Android"],
-  ev:"private repo AxeDE/ti84emu · 19 commits from 24 Oct 2026 · ~13,100 lines · figures from CLAUDE.md status table",
+  ev:"<a href="https://github.com/ClainBill/ti84emu">github.com/ClainBill/ti84emu</a> · 20 commits from 24 Oct 2026 · ~13,100 lines · figures from CLAUDE.md status table",
   why:{aiday:"The demo on my table. It's a closed loop: the agent writes, compiles, plays and fixes a game with no human in it.",
        godo:"A QA harness for an agent. The same idea as your agentic QA build: give the agent a pass/fail it can't argue with.",
        security:"A CPU emulator with a debugger: disassembly, breakpoints, single-stepping, instruction trace and port logging.",
@@ -209,7 +209,7 @@ const P = [
   what:"The website for a film podcast I co-host and edit. A new episode on Spotify shows up on the site by itself; transcript, film pages and quote search are a few commands more.",
   points:["Daily GitHub Action syncs the RSS feed and creates the episode page","Local Whisper transcription with automatic speaker detection, named from cues in the conversation","Finds every film mentioned and builds its page from TMDB","Hosts fix transcripts on the site itself; each save is a commit, live in about 2 minutes","Runs for about £8–10 a year: the domain. Everything else fits in free tiers"],
   stack:["Astro","Cloudflare Workers","D1","Preact","mlx-whisper","speechbrain"],
-  ev:'<a href="https://sink-alike.wcgill.com">sink-alike.wcgill.com</a> (live) · private repo ClainBill/sinkalike · 23 commits, 27 Sep – 16 Oct 2026 · 3 episodes · figures from README',
+  ev:'<a href="https://sink-alike.wcgill.com">sink-alike.wcgill.com</a> (live) · <a href="https://github.com/ClainBill/sinkalike">github.com/ClainBill/sinkalike</a> · 24 commits since 27 Sep 2026 · 3 episodes · figures from README',
   why:{aiday:"AI where it earns its place: speech-to-text and speaker recognition running on my own laptop, at no cost per episode.",
        godo:"The one thing I'd send you. A real workflow mapped end to end, the slow steps automated, and the running cost designed down to a domain name.",
        security:"Public write endpoints, so abuse was designed for: Turnstile on forms, sign-in codes rate-limited to 3 per 5 minutes, salted IP hashes, link comments held for review, cookieless analytics.",
@@ -220,7 +220,7 @@ const P = [
   what:"An attempt to get two-player co-op working between a Mac and a Steam Deck on the shadPS4 emulator, for a game whose servers no longer broker it. That meant working out an undocumented protocol from packet captures, emulator logs and the game's disassembly.",
   points:["Found a race: two threads reading one UDP socket. One capture showed 21 signalling packets stolen; after the single-reader fix, zero","Found why registration silently failed: the server drops any datagram without a 4-byte header","Scanned the game's import table to prove which API it reads the peer's port from, then fixed that one","Disassembled the session state machine to the single call site where a guest accepts a connection","Built a tagged trace across all three layers, plus a pruning script that cuts a 5,718-line log to 14"],
   stack:["C++","Python","UDP / STUN","llvm-objdump","x86-64"],
-  ev:"local research folder · two patches (539 + 965 lines) · 871-line session server in Python · 87 captured logs · Aug 2026 · findings from my dated research notes",
+  ev:"<a href="https://github.com/ClainBill/bloodborne-coop-research">github.com/ClainBill/bloodborne-coop-research</a> · two patches (539 + 965 lines) · 871-line session server in Python · 87 captured logs (kept local) · Aug 2026 · findings from my dated research notes",
   status:"not finished",
   why:{aiday:"What an agent is like as a research partner on a problem with no documentation. Co-op still doesn't work; the transport underneath it now does.",
        godo:"\"I don't know yet, I'll find out\", every day for a week and a half. Each wrong theory was killed with a capture, not an opinion.",
@@ -232,7 +232,7 @@ const P = [
   what:"An offline vocabulary app for fluent English speakers: a 740,000-entry dictionary, spaced-repetition flashcards, and daily crosswords built from the words you're learning.",
   points:["Dictionary built by my own pipeline from a Wiktionary extract","Premium, accounts, groups and a leaderboard on Supabase and RevenueCat","The 464 MB dictionary broke Google Play's size cap, so it ships as an install-time asset pack and the base app stays near 40 MB","Account deletion, privacy policy and terms are built, not postponed"],
   stack:["Flutter","Dart","SQLite","Supabase","RevenueCat","Python"],
-  ev:'<a href="https://wordwizard.wcgill.com">wordwizard.wcgill.com</a> (landing page live) · private repo ClainBill/word-wizard · 21 commits, 6–28 Sep 2026 · 55,299 lines of Dart · store testing still to do',
+  ev:'<a href="https://wordwizard.wcgill.com">wordwizard.wcgill.com</a> (landing page live) · <a href="https://github.com/ClainBill/word-wizard">github.com/ClainBill/word-wizard</a> (latest work on the crosswordler-port branch) · 22 commits since 6 Sep 2026 · 55,299 lines of Dart · store testing still to do',
   status:"pre-launch",
   why:{aiday:"The biggest thing I've directed an agent to build: 55,000 lines, with a paywall and a backend.",
        godo:"A product with a price on it. The paywall, the free tier and the cost of every AI call were product decisions before they were code.",
@@ -244,7 +244,7 @@ const P = [
   what:"The crossword generator behind Word Wizard. It builds a personalised 5×5, 9×9 or 17×17 puzzle around the words a learner is studying, offline, in about a fifth of a second.",
   points:["Median generation 0.13s / 0.14s / 0.20s by size","16,448 clues written by an LLM once, then cached and committed, because regenerating costs money","An LLM editor reviews finished puzzles, with a hard time limit so it can't stall one","A playable test bench shows where each clue came from and lets a human rate it"],
   stack:["Python","WordNet","LLM batch jobs","pytest"],
-  ev:"local repo Crosswordler · 30 commits, 7–9 Sep 2026 · 5,761 lines of Python · timings from README",
+  ev:"<a href="https://github.com/ClainBill/crosswordler">github.com/ClainBill/crosswordler</a> · 30 commits, 7–9 Sep 2026 · 5,761 lines of Python · timings from README",
   why:{aiday:"Where to put the model: at build time, once, cached. Not on every request.",
        godo:"Commercial instinct in one decision: pay for the LLM once and ship the result, so the feature costs nothing to run.",
        security:"A validator sits between the model and the user. It caught two gaps the LLM's own output exposed.",
@@ -255,7 +255,7 @@ const P = [
   what:"An agent that finds scholarships, judges whether I'm eligible, fills in the simple applications in a real browser, and stops to ask me when it reaches an essay or a question it can't answer.",
   points:["Matching is batched ten at a time, because one call per scholarship blew through the free tier's rate limit","Essay drafts may only use facts from my profile, and wait for my approval","A run log shows every step the agent took"],
   stack:["Next.js","AI SDK","Gemini 2.5 Flash","Stagehand","Firecrawl","Postgres"],
-  ev:"local repo Scholarship Scraper · Aug 2026 · details from src/lib/matching.ts, essay.ts, ai-retry.ts, browser-agent.ts",
+  ev:"<a href="https://github.com/ClainBill/scholarship-agent">github.com/ClainBill/scholarship-agent</a> · Aug 2026 · details from src/lib/matching.ts, essay.ts, ai-retry.ts, browser-agent.ts",
   status:"prototype",
   why:{aiday:"A browser agent with a brake: it knows which steps are its job and which are mine.",
        godo:"A process with money at the end of it, automated up to the point where a person's judgement is the product.",
@@ -278,7 +278,7 @@ const P = [
   what:"My Japanese class wants a log of everything I read. Filling in the row took longer than choosing an article, so I stopped wanting to read. This extension counts the characters on a Japanese news site and turns logging into two clicks and a paste.",
   points:["Counts come from the site's own API, four requests at a time, cached for good","Furigana readings are stripped so they aren't counted twice","No dependencies and no build step"],
   stack:["JavaScript","Chrome MV3","MutationObserver"],
-  ev:"local folder TodaiiWordCountExtension · Oct 2026 · behaviour from README and background.js",
+  ev:"<a href="https://github.com/ClainBill/todaii-character-count">github.com/ClainBill/todaii-character-count</a> · Oct 2026 · behaviour from README and background.js",
   why:{aiday:"A small one: an afternoon with an agent to remove a chore I had every day.",
        godo:"The smallest version of the job: spot the step that costs more than the work it supports, and delete it.",
        security:"Reads a third-party API politely: four requests at a time, and each article is fetched once.",
@@ -300,7 +300,7 @@ const P = [
   what:"A calendar-first task app for Android. I'd tried full GTD systems and dropped them because capturing a task took too many decisions, so this one asks plain questions later instead.",
   points:["Staged reminders, place and person triggers, natural-language quick add","Built from a spec I keep in my notes, tested on an emulator from my written feedback","About 70 automated tests"],
   stack:["Flutter","Dart","SQLite"],
-  ev:"local repo Get It Done · 13 commits, 16 Oct 2026 · 28,016 lines of Dart",
+  ev:"<a href="https://github.com/ClainBill/get-it-done">github.com/ClainBill/get-it-done</a> · 14 commits since 16 Oct 2026 · 28,016 lines of Dart",
   why:{aiday:"Spec in, app out, then a feedback file the agent reads at the start of every session.",
        godo:"Designed around where the old process failed, not around a feature list.",
        security:"Tested the way I'd want any change tested: on a device, against written feedback, before it counts as done.",
@@ -311,7 +311,7 @@ const P = [
   what:"A full-size airless basketball for a Prusa XL, generated by Python scripts and finished in Blender with no hand modelling.",
   points:["630 hexagonal and 12 pentagonal cells in one connected shell","Exported mesh checked: 192,000 triangles, no non-manifold edges","Not printed yet. No bounce test has been done, and the notes say so"],
   stack:["Python","trimesh","Blender"],
-  ev:"local folder 3dPrintBasketball · Sep 2026 · figures from PRINT_NOTES.md",
+  ev:"<a href="https://github.com/ClainBill/airless-basketball">github.com/ClainBill/airless-basketball</a> · Sep 2026 · figures from PRINT_NOTES.md",
   status:"untested",
   why:{aiday:"An agent driving Blender from the command line, with a mesh validator as its referee.",
        godo:"AI outside of text and code: a physical part, with the checks that can be automated, automated.",
