@@ -161,8 +161,8 @@ footer .big{font-family:var(--serif);font-size:24px;color:var(--ink);margin-bott
 
   <section><div class="wrap">
     <div class="mono">How I work with AI</div>
-    <h2>The agent writes. I decide what's true.</h2>
-    <p class="sub">Most of the code on this page was written by AI coding agents (Claude Code, and Codex for the 3D work). My part is the part that doesn't delegate: choosing the problem, writing the spec, and building the check that says whether it worked.</p>
+    <h2>Where AI comes in, and where it doesn't</h2>
+    <p class="sub">Lizzy Lee's was written entirely by hand. On the newer projects I work with AI coding agents (Claude Code, and Codex for the 3D work), and the further down the page you go, the more of the code is theirs. What stays mine on all of them is choosing the problem, writing the spec, and building the check that says whether it worked.</p>
     <div class="cols">
       <div class="box"><h4>1. Spec first</h4><p>Crosswordler's algorithm lives in a porting spec detailed enough to rebuild it in another language. Then it was rebuilt, in Dart, inside Word Wizard.</p></div>
       <div class="box"><h4>2. A gate for every phase</h4><p>The TI-84 emulator had six phases. None started until the last one's test passed, beginning with 1.6 million single-instruction CPU tests.</p></div>
@@ -198,7 +198,7 @@ const P = [
   what:"A TI-84 Plus SE emulator I had built from scratch so an AI agent can write a calculator game, compile it with the real Axe compiler running inside the emulator, play it with scripted key presses and read the screen back. Nobody has to hold the calculator.",
   points:["Z80 CPU core passes SingleStepTests (1.6M cases), ZEXDOC and ZEXALL","<code>ti84 test game.axe</code> returns a JSON report with screenshots in about half a second","Shared live session: I can take the calculator off the agent at any moment","Grew into a web IDE, an Android port and Night Shift, an original 16 KB game"],
   stack:["C11","CMake","Z80","Python","Android"],
-  ev:"<a href="https://github.com/ClainBill/ti84emu">github.com/ClainBill/ti84emu</a> · 20 commits from 24 Oct 2026 · ~13,100 lines · figures from CLAUDE.md status table",
+  ev:"<a href='https://github.com/ClainBill/ti84emu'>github.com/ClainBill/ti84emu</a> · 20 commits from 24 Oct 2026 · ~13,100 lines · figures from CLAUDE.md status table",
   why:{aiday:"The demo on my table. It's a closed loop: the agent writes, compiles, plays and fixes a game with no human in it.",
        godo:"A QA harness for an agent. The same idea as your agentic QA build: give the agent a pass/fail it can't argue with.",
        security:"A CPU emulator with a debugger: disassembly, breakpoints, single-stepping, instruction trace and port logging.",
@@ -220,7 +220,7 @@ const P = [
   what:"An attempt to get two-player co-op working between a Mac and a Steam Deck on the shadPS4 emulator, for a game whose servers no longer broker it. That meant working out an undocumented protocol from packet captures, emulator logs and the game's disassembly.",
   points:["Found a race: two threads reading one UDP socket. One capture showed 21 signalling packets stolen; after the single-reader fix, zero","Found why registration silently failed: the server drops any datagram without a 4-byte header","Scanned the game's import table to prove which API it reads the peer's port from, then fixed that one","Disassembled the session state machine to the single call site where a guest accepts a connection","Built a tagged trace across all three layers, plus a pruning script that cuts a 5,718-line log to 14"],
   stack:["C++","Python","UDP / STUN","llvm-objdump","x86-64"],
-  ev:"<a href="https://github.com/ClainBill/bloodborne-coop-research">github.com/ClainBill/bloodborne-coop-research</a> · two patches (539 + 965 lines) · 871-line session server in Python · 87 captured logs (kept local) · Aug 2026 · findings from my dated research notes",
+  ev:"<a href='https://github.com/ClainBill/bloodborne-coop-research'>github.com/ClainBill/bloodborne-coop-research</a> · two patches (539 + 965 lines) · 871-line session server in Python · 87 captured logs (kept local) · Aug 2026 · findings from my dated research notes",
   status:"not finished",
   why:{aiday:"What an agent is like as a research partner on a problem with no documentation. Co-op still doesn't work; the transport underneath it now does.",
        godo:"\"I don't know yet, I'll find out\", every day for a week and a half. Each wrong theory was killed with a capture, not an opinion.",
@@ -234,7 +234,7 @@ const P = [
   stack:["Flutter","Dart","SQLite","Supabase","RevenueCat","Python"],
   ev:'<a href="https://wordwizard.wcgill.com">wordwizard.wcgill.com</a> (landing page live) · <a href="https://github.com/ClainBill/word-wizard">github.com/ClainBill/word-wizard</a> (latest work on the crosswordler-port branch) · 22 commits since 6 Sep 2026 · 55,299 lines of Dart · store testing still to do',
   status:"pre-launch",
-  why:{aiday:"The biggest thing I've directed an agent to build: 55,000 lines, with a paywall and a backend.",
+  why:{aiday:"The biggest thing I've built: a dictionary pipeline, an app, a backend and a paywall.",
        godo:"A product with a price on it. The paywall, the free tier and the cost of every AI call were product decisions before they were code.",
        security:"Accounts, entitlements and a payment webhook: the AI key stays on the server behind an edge function, never in the app.",
        all:"A full product: content pipeline, app, backend, website."},
@@ -244,7 +244,7 @@ const P = [
   what:"The crossword generator behind Word Wizard. It builds a personalised 5×5, 9×9 or 17×17 puzzle around the words a learner is studying, offline, in about a fifth of a second.",
   points:["Median generation 0.13s / 0.14s / 0.20s by size","16,448 clues written by an LLM once, then cached and committed, because regenerating costs money","An LLM editor reviews finished puzzles, with a hard time limit so it can't stall one","A playable test bench shows where each clue came from and lets a human rate it"],
   stack:["Python","WordNet","LLM batch jobs","pytest"],
-  ev:"<a href="https://github.com/ClainBill/crosswordler">github.com/ClainBill/crosswordler</a> · 30 commits, 7–9 Sep 2026 · 5,761 lines of Python · timings from README",
+  ev:"<a href='https://github.com/ClainBill/crosswordler'>github.com/ClainBill/crosswordler</a> · 30 commits, 7–9 Sep 2026 · 5,761 lines of Python · timings from README",
   why:{aiday:"Where to put the model: at build time, once, cached. Not on every request.",
        godo:"Commercial instinct in one decision: pay for the LLM once and ship the result, so the feature costs nothing to run.",
        security:"A validator sits between the model and the user. It caught two gaps the LLM's own output exposed.",
@@ -255,7 +255,7 @@ const P = [
   what:"An agent that finds scholarships, judges whether I'm eligible, fills in the simple applications in a real browser, and stops to ask me when it reaches an essay or a question it can't answer.",
   points:["Matching is batched ten at a time, because one call per scholarship blew through the free tier's rate limit","Essay drafts may only use facts from my profile, and wait for my approval","A run log shows every step the agent took"],
   stack:["Next.js","AI SDK","Gemini 2.5 Flash","Stagehand","Firecrawl","Postgres"],
-  ev:"<a href="https://github.com/ClainBill/scholarship-agent">github.com/ClainBill/scholarship-agent</a> · Aug 2026 · details from src/lib/matching.ts, essay.ts, ai-retry.ts, browser-agent.ts",
+  ev:"<a href='https://github.com/ClainBill/scholarship-agent'>github.com/ClainBill/scholarship-agent</a> · Aug 2026 · details from src/lib/matching.ts, essay.ts, ai-retry.ts, browser-agent.ts",
   status:"prototype",
   why:{aiday:"A browser agent with a brake: it knows which steps are its job and which are mine.",
        godo:"A process with money at the end of it, automated up to the point where a person's judgement is the product.",
@@ -263,22 +263,22 @@ const P = [
        all:"An agent with a human approval step built in."},
   order:{aiday:6,godo:5,security:9,all:8}},
 
-{ id:"lizzy", title:"Lizzy Lee's Rock Cafe", kind:"Business system · Python · 2023", img:"assets/lizzy.png", alt:"Lizzy Lee's management system showing a record list",
+{ id:"lizzy", title:"Lizzy Lee's Rock Cafe", kind:"Business system · Python · 2023", status:"written by hand", img:"assets/lizzy.png", alt:"Lizzy Lee's management system showing a record list",
   what:"My A-Level project, written by hand before AI coding tools. A real music cafe ran on paper; I investigated how it worked and built one desktop system for its stock, staff, customers, students and lesson bookings.",
   points:["2,679 lines, standard library only: the exam board fixed Python at 3.4.2","Login with role-based users, date-range filtering, a SQLite data layer","315-page write-up covering investigation, design, testing and evaluation","85/100, the highest mark my teacher had seen for the project"],
   stack:["Python 3.4.2","Tkinter","SQLite"],
   ev:'<a href="https://github.com/ClainBill/Lizzy-Lees-Computer-Science-A-Level-WJEC-Submission">public repo on GitHub</a> with the full write-up · 2023',
-  why:{aiday:"The control group: what I could build with no AI at all.",
-       godo:"Getting inside a business and mapping how the work flows, before I had any AI to help.",
+  why:{aiday:"Every line is mine. No AI tools, no frameworks, no libraries beyond what ships with Python.",
+       godo:"Getting inside a business and mapping how the work flows, then writing every line of the fix myself.",
        security:"Written by hand, with authentication and role-based access in the design from the start.",
-       all:"Proof I can do it the slow way."},
+       all:"Every line is mine, and it is still the project I'd defend hardest."},
   order:{aiday:8,godo:7,security:6,all:6}},
 
 { id:"todaii", title:"Todaii Character Count", kind:"Chrome extension · JavaScript", img:null,
   what:"My Japanese class wants a log of everything I read. Filling in the row took longer than choosing an article, so I stopped wanting to read. This extension counts the characters on a Japanese news site and turns logging into two clicks and a paste.",
   points:["Counts come from the site's own API, four requests at a time, cached for good","Furigana readings are stripped so they aren't counted twice","No dependencies and no build step"],
   stack:["JavaScript","Chrome MV3","MutationObserver"],
-  ev:"<a href="https://github.com/ClainBill/todaii-character-count">github.com/ClainBill/todaii-character-count</a> · Oct 2026 · behaviour from README and background.js",
+  ev:"<a href='https://github.com/ClainBill/todaii-character-count'>github.com/ClainBill/todaii-character-count</a> · Oct 2026 · behaviour from README and background.js",
   why:{aiday:"A small one: an afternoon with an agent to remove a chore I had every day.",
        godo:"The smallest version of the job: spot the step that costs more than the work it supports, and delete it.",
        security:"Reads a third-party API politely: four requests at a time, and each article is fetched once.",
@@ -300,7 +300,7 @@ const P = [
   what:"A calendar-first task app for Android. I'd tried full GTD systems and dropped them because capturing a task took too many decisions, so this one asks plain questions later instead.",
   points:["Staged reminders, place and person triggers, natural-language quick add","Built from a spec I keep in my notes, tested on an emulator from my written feedback","About 70 automated tests"],
   stack:["Flutter","Dart","SQLite"],
-  ev:"<a href="https://github.com/ClainBill/get-it-done">github.com/ClainBill/get-it-done</a> · 14 commits since 16 Oct 2026 · 28,016 lines of Dart",
+  ev:"<a href='https://github.com/ClainBill/get-it-done'>github.com/ClainBill/get-it-done</a> · 14 commits since 16 Oct 2026 · 28,016 lines of Dart",
   why:{aiday:"Spec in, app out, then a feedback file the agent reads at the start of every session.",
        godo:"Designed around where the old process failed, not around a feature list.",
        security:"Tested the way I'd want any change tested: on a device, against written feedback, before it counts as done.",
@@ -311,7 +311,7 @@ const P = [
   what:"A full-size airless basketball for a Prusa XL, generated by Python scripts and finished in Blender with no hand modelling.",
   points:["630 hexagonal and 12 pentagonal cells in one connected shell","Exported mesh checked: 192,000 triangles, no non-manifold edges","Not printed yet. No bounce test has been done, and the notes say so"],
   stack:["Python","trimesh","Blender"],
-  ev:"<a href="https://github.com/ClainBill/airless-basketball">github.com/ClainBill/airless-basketball</a> · Sep 2026 · figures from PRINT_NOTES.md",
+  ev:"<a href='https://github.com/ClainBill/airless-basketball'>github.com/ClainBill/airless-basketball</a> · Sep 2026 · figures from PRINT_NOTES.md",
   status:"untested",
   why:{aiday:"An agent driving Blender from the command line, with a mesh validator as its referee.",
        godo:"AI outside of text and code: a physical part, with the checks that can be automated, automated.",
@@ -326,7 +326,7 @@ aiday:{
   eyebrow:"BYU AI Day · 16 November 2026 · Garden Court",
   h1:"I build with AI agents. Then I make them <em>prove it</em>.",
   lede:"I'm William, a computer science student at BYU from Wales. Since July I've built fifteen projects with AI coding agents, from a calculator emulator to a live podcast site. What I've learned is that the agent is rarely the hard part. The check is.",
-  cta:[["See the table demo","#ti84",1],["Email me","mailto:willcharlesgill@gmail.com"]],
+  cta:[["Start with the work","#projects",1],["Email me","mailto:willcharlesgill@gmail.com"]],
   facts:[["15","projects since July 2026"],["1.6M","CPU tests the emulator passes"],["3","sites live today"],["3","languages: English, Japanese, Welsh"]],
   fitEyebrow:"If you have two minutes at my table",
   fitTitle:"What to ask me about",
@@ -343,7 +343,7 @@ godo:{
   eyebrow:"For GoDo Labs · AI Transformation Analyst",
   h1:"You said think fifty. I'm at <em>fifteen</em> since July.",
   lede:"Your posting asks for someone who already uses AI to do in hours what takes others days, and who looks at a process and asks what it's worth. I'm a BYU computer science student who has spent five months doing that on my own time. Here is the evidence, with the source for each claim.",
-  cta:[["The one thing I'd send","#sink",1],["Email me","mailto:willcharlesgill@gmail.com"]],
+  cta:[["Start with the work","#projects",1],["Email me","mailto:willcharlesgill@gmail.com"]],
   facts:[["15","projects built with AI since July 2026"],["£8–10","a year to run a live site with auth, comments and analytics"],["16,448","LLM clues bought once, then cached"],["0.2s","to generate a crossword, offline"]],
   fitEyebrow:"Your posting, line by line",
   fitTitle:"What you bring → what I've done",
@@ -361,7 +361,7 @@ security:{
   eyebrow:"For Kaylee Hill · BYU Security Operations",
   h1:"No security job yet. Here is how I <em>investigate</em>.",
   lede:"I'm a BYU computer science student with no professional security experience, and I won't dress that up. What I can show you is the habit the work needs: start from the logs, form a theory, capture the evidence that kills or confirms it, and write down what I found.",
-  cta:[["Read the investigation","#bb",1],["Email me","mailto:willcharlesgill@gmail.com"]],
+  cta:[["Start with the work","#projects",1],["Email me","mailto:willcharlesgill@gmail.com"]],
   facts:[["5,718 → 14","log lines, after the filter I wrote"],["21 → 0","stolen packets, before and after one fix"],["1.6M","CPU instruction tests passed"],["A* / A*","A-Level Computer Science and Maths"]],
   fitEyebrow:"Your team's work, from infosec.byu.edu",
   fitTitle:"What the SOC does → where I've done something like it",
@@ -403,7 +403,9 @@ function render(lens){
   $("fit").innerHTML = c.fit.map(([a,s,p]) => `<div class="row"><div class="ask">${a}<small>${s}</small></div><div class="proof">${p}</div></div>`).join("");
   $("work-title").textContent = c.work;
   const label = {aiday:"Why it's here",godo:"Why it matters to GoDo",security:"Why it matters to a SOC",all:"In one line"}[lens];
-  $("projects").innerHTML = [...P].sort((a,b) => a.order[lens]-b.order[lens]).map((p,i) => {
+  const FIRST = ["lizzy","ww","bb"];
+  const rank = p => FIRST.includes(p.id) ? FIRST.indexOf(p.id) : FIRST.length + p.order[lens];
+  $("projects").innerHTML = [...P].sort((a,b) => rank(a)-rank(b)).map((p,i) => {
     const lead = i === 0;
     const shot = p.img ? `<div class="shot${p.px?" px":""}"><img src="${p.img}" alt="${p.alt}" loading="lazy"></div>` : "";
     const body = `<div class="body">
