@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en" data-lens="aiday">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>William Gill · Portfolio</title>
+<meta name="description" content="William Gill: BYU computer science student. Fifteen projects built with AI agents since July 2026, each one checked against its source.">
+<style>
+/* ── Lenses: each audience gets its own palette ───────────────────────────── */
+:root{
+  --bg:#f5f2ea; --panel:#fffdf8; --ink:#15171c; --muted:#5c6068; --line:#d9d4c7;
+  --accent:#0b3d91; --accent-ink:#ffffff; --chip:#ebe6d9;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+html[data-lens="godo"]{
+  --bg:#070d1c; --panel:#0e172b; --ink:#f3ede3; --muted:#9aa5b8; --line:#243150;
+  --accent:#f5a13a; --accent-ink:#10131c; --chip:#16223c;
+}
+html[data-lens="security"]{
+  --bg:#0c1110; --panel:#121a18; --ink:#e4ece8; --muted:#8fa29a; --line:#24332e;
+  --accent:#58d39b; --accent-ink:#07130d; --chip:#18231f;
+}
+html[data-lens="all"]{ --accent:#a3341f; }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans);transition:background .25s,color .25s}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:hover{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* ── Top bar ──────────────────────────────────────────────────────────────── */
+header.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.name{font-family:var(--serif);font-size:19px;font-weight:700;margin-right:auto;text-decoration:none}
+.lenses{display:flex;gap:6px;flex-wrap:wrap}
+.lenses button{font:600 13px var(--sans);padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.lenses button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+.hero{padding:56px 0 30px}
+.hero h1{font-family:var(--serif);font-size:clamp(34px,6vw,60px);line-height:1.05;margin:10px 0 18px;letter-spacing:-.01em;max-width:17ch;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lede{font-size:19px;max-width:62ch;color:var(--ink);margin:0 0 22px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:26px}
+.facts div{background:var(--panel);padding:14px 16px}
+.facts b{display:block;font-family:var(--serif);font-size:26px;line-height:1.1}
+.facts span{font-size:13px;color:var(--muted)}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{color:var(--accent-ink);filter:brightness(1.08)}
+
+/* ── Sections ─────────────────────────────────────────────────────────────── */
+section{padding:34px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:28px;margin:6px 0 6px}
+.sub{color:var(--muted);max-width:68ch;margin:0 0 20px}
+
+/* Fit table: their words → my evidence */
+.fit{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.fit .row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,9fr);background:var(--panel)}
+.fit .row>div{padding:14px 16px}
+.fit .ask{font-weight:650;border-right:1px solid var(--line)}
+.fit .ask small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
+.fit .proof{font-size:15px}
+.fit .proof a{font-weight:600}
+
+/* Project cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:80px}
+.card.lead{grid-column:1/-1}
+.card.lead .inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0}
+.card .shot{background:#0b0d12;display:flex;align-items:center;justify-content:center;min-height:150px;max-height:300px;overflow:hidden}
+.card .shot img{width:100%;height:100%;object-fit:cover;display:block}
+.card .shot.px img{image-rendering:pixelated;object-fit:contain;padding:14px;max-height:260px}
+.card .body{padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-family:var(--serif);font-size:22px;margin:0;line-height:1.2}
+.kind{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.card p{margin:0;font-size:15px}
+.why{border-left:3px solid var(--accent);padding:2px 0 2px 12px;font-size:14.5px}
+.why b{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px}
+.card ul{margin:0;padding-left:18px;font-size:14.5px}
+.card li{margin:3px 0}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chips span{font-size:12px;background:var(--chip);border-radius:5px;padding:2px 7px;color:var(--muted)}
+.evidence{margin-top:auto;border-top:1px dashed var(--line);padding-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.6}
+.evidence a{color:var(--ink)}
+.status{display:inline-block;font-family:var(--mono);font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px;vertical-align:middle;letter-spacing:.04em}
+
+/* Method + background */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+.box h4{margin:0 0 6px;font-family:var(--serif);font-size:18px}
+.box p{margin:0;font-size:15px;color:var(--muted)}
+.tl{display:grid;gap:14px}
+.tl .item{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px}
+.tl .when{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
+.tl b{display:block}
+.tl p{margin:2px 0 0;font-size:15px;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:30px 0 60px;color:var(--muted);font-size:14px}
+footer .big{font-family:var(--serif);font-size:24px;color:var(--ink);margin-bottom:6px}
+
+@media (max-width:760px){
+  .fit .row{grid-template-columns:1fr}
+  .fit .ask{border-right:0;border-bottom:1px solid var(--line)}
+  .card.lead .inner{grid-template-columns:1fr}
+  .tl .item{grid-template-columns:1fr;gap:2px}
+  .hero{padding-top:36px}
+  .grid{grid-template-columns:1fr}
+}
+@media print{
+  header.bar,.cta{display:none}
+  body{background:#fff;color:#000;font-size:12px}
+  .card,.box,.fit .row,.facts div{background:#fff}
+  .card{break-inside:avoid}
+  section{padding:16px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="name" href="#top">William Gill</a>
+    <span class="mono">Viewing as</span>
+    <nav class="lenses" aria-label="Choose who this page is written for">
+      <button data-lens="aiday">AI Day</button>
+      <button data-lens="godo">GoDo Labs</button>
+      <button data-lens="security">BYU Security</button>
+      <button data-lens="all">Everything</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="mono" id="eyebrow"></div>
+    <h1 id="headline"></h1>
+    <p class="lede" id="lede"></p>
+    <div class="cta" id="cta"></div>
+    <div class="facts" id="facts"></div>
+  </div>
+
+  <section id="fit-section"><div class="wrap">
+    <div class="mono" id="fit-eyebrow"></div>
+    <h2 id="fit-title"></h2>
+    <p class="sub" id="fit-sub"></p>
+    <div class="fit" id="fit"></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="mono">The work</div>
+    <h2 id="work-title">Projects</h2>
+    <p class="sub">Every number on a card was read out of the project itself: the git history, the README, the code or the live site. The dashed line at the bottom of each card says where.</p>
+    <div class="grid" id="projects"></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="mono">How I work with AI</div>
+    <h2>The agent writes. I decide what's true.</h2>
+    <p class="sub">Most of the code on this page was written by AI coding agents (Claude Code, and Codex for the 3D work). My part is the part that doesn't delegate: choosing the problem, writing the spec, and building the check that says whether it worked.</p>
+    <div class="cols">
+      <div class="box"><h4>1. Spec first</h4><p>Crosswordler's algorithm lives in a porting spec detailed enough to rebuild it in another language. Then it was rebuilt, in Dart, inside Word Wizard.</p></div>
+      <div class="box"><h4>2. A gate for every phase</h4><p>The TI-84 emulator had six phases. None started until the last one's test passed, beginning with 1.6 million single-instruction CPU tests.</p></div>
+      <div class="box"><h4>3. Give the agent eyes</h4><p>An agent that can't see the result guesses. So the emulator returns a JSON report and screenshots, and the phone apps get checked on an Android emulator, not just by unit tests.</p></div>
+      <div class="box"><h4>4. Say what isn't done</h4><p>The Bloodborne co-op work is unsolved, and its card says so. The airless basketball has never been printed, and its notes say that too.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="mono">Background</div>
+    <h2>Before the laptop</h2>
+    <div class="tl">
+      <div class="item"><div class="when">2026 – now</div><div><b>Computer science student, Brigham Young University</b><p>Provo, Utah. Current coursework is C++ data structures: linked lists, vectors and deques written from scratch.</p></div></div>
+      <div class="item"><div class="when">Apr – Aug 2026</div><div><b>Independent contractor, sales · Richmond, Virginia</b><p>First year selling. Moved to a new country a few months after my mission, set my own schedule through long days in 100°F heat, and reported results to my team leader.</p></div></div>
+      <div class="item"><div class="when">Jan 2024 – Jan 2026</div><div><b>Missionary · Tokyo, Japan</b><p>Built a 12-week orientation programme for the mission's internal playbooks and helped roll out a new mission vision. Taught myself Japanese before the call came.</p></div></div>
+      <div class="item"><div class="when">2020 – 2023</div><div><b>McDonald's crew, assistant hotelier and landscaper · Anglesey, Wales</b><p>Three jobs alongside school: customer complaints at a rush-hour counter, guest changeovers in a three-storey hotel, and stone retaining walls.</p></div></div>
+      <div class="item"><div class="when">2021 – 2023</div><div><b>A Levels, Ysgol Gyfun Llangefni</b><p>Computer Science A*, Maths A*, Physics A. GCSEs: A* in Maths, Computer Science, Physics, Chemistry and Biology.</p></div></div>
+      <div class="item"><div class="when">Languages</div><div><b>English, Japanese, Welsh</b></div></div>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="big">willcharlesgill@gmail.com</div>
+  <div>+1 (385) 208-2924 · Provo, Utah · <a href="https://github.com/ClainBill">github.com/ClainBill</a> · <a href="https://wcgill.com">wcgill.com</a></div>
+  <p style="max-width:70ch;margin-top:14px">Private repositories are named so you can ask to see them. Sales, mission and school details come from my CV; everything about a project comes from the project.</p>
+</div></footer>
+
+<script>
+/* ── Projects. `why` holds one line per lens; `order` is where it sits per lens. ─ */
+const P = [
+{ id:"ti84", title:"ti84emu + AxeDE", kind:"Emulator · agent test harness · C11", img:"assets/nightshift.png", px:true, alt:"Sprite sheet for Night Shift, a grayscale TI-84 game",
+  what:"A TI-84 Plus SE emulator I had built from scratch so an AI agent can write a calculator game, compile it with the real Axe compiler running inside the emulator, play it with scripted key presses and read the screen back. Nobody has to hold the calculator.",
+  points:["Z80 CPU core passes SingleStepTests (1.6M cases), ZEXDOC and ZEXALL","<code>ti84 test game.axe</code> returns a JSON report with screenshots in about half a second","Shared live session: I can take the calculator off the agent at any moment","Grew into a web IDE, an Android port and Night Shift, an original 16 KB game"],
+  stack:["C11","CMake","Z80","Python","Android"],
+  ev:"private repo AxeDE/ti84emu · 19 commits from 24 Oct 2026 · ~13,100 lines · figures from CLAUDE.md status table",
+  why:{aiday:"The demo on my table. It's a closed loop: the agent writes, compiles, plays and fixes a game with no human in it.",
+       godo:"A QA harness for an agent. The same idea as your agentic QA build: give the agent a pass/fail it can't argue with.",
+       security:"A CPU emulator with a debugger: disassembly, breakpoints, single-stepping, instruction trace and port logging.",
+       all:"Six gated phases, each with a test that had to pass before the next began."},
+  order:{aiday:1,godo:3,security:2,all:1}},
+
+{ id:"sink", title:"Sink Alike", kind:"Live site · podcast production pipeline", img:"assets/sinkalike.png", alt:"Sink Alike podcast artwork",
+  what:"The website for a film podcast I co-host and edit. A new episode on Spotify shows up on the site by itself; transcript, film pages and quote search are a few commands more.",
+  points:["Daily GitHub Action syncs the RSS feed and creates the episode page","Local Whisper transcription with automatic speaker detection, named from cues in the conversation","Finds every film mentioned and builds its page from TMDB","Hosts fix transcripts on the site itself; each save is a commit, live in about 2 minutes","Runs for about £8–10 a year: the domain. Everything else fits in free tiers"],
+  stack:["Astro","Cloudflare Workers","D1","Preact","mlx-whisper","speechbrain"],
+  ev:'<a href="https://sink-alike.wcgill.com">sink-alike.wcgill.com</a> (live) · private repo ClainBill/sinkalike · 23 commits, 27 Sep – 16 Oct 2026 · 3 episodes · figures from README',
+  why:{aiday:"AI where it earns its place: speech-to-text and speaker recognition running on my own laptop, at no cost per episode.",
+       godo:"The one thing I'd send you. A real workflow mapped end to end, the slow steps automated, and the running cost designed down to a domain name.",
+       security:"Public write endpoints, so abuse was designed for: Turnstile on forms, sign-in codes rate-limited to 3 per 5 minutes, salted IP hashes, link comments held for review, cookieless analytics.",
+       all:"A live site my co-hosts can edit without touching code."},
+  order:{aiday:2,godo:1,security:3,all:2}},
+
+{ id:"bb", title:"Bloodborne co-op on shadPS4", kind:"Protocol reverse-engineering · unsolved", img:null,
+  what:"An attempt to get two-player co-op working between a Mac and a Steam Deck on the shadPS4 emulator, for a game whose servers no longer broker it. That meant working out an undocumented protocol from packet captures, emulator logs and the game's disassembly.",
+  points:["Found a race: two threads reading one UDP socket. One capture showed 21 signalling packets stolen; after the single-reader fix, zero","Found why registration silently failed: the server drops any datagram without a 4-byte header","Scanned the game's import table to prove which API it reads the peer's port from, then fixed that one","Disassembled the session state machine to the single call site where a guest accepts a connection","Built a tagged trace across all three layers, plus a pruning script that cuts a 5,718-line log to 14"],
+  stack:["C++","Python","UDP / STUN","llvm-objdump","x86-64"],
+  ev:"local research folder · two patches (539 + 965 lines) · 871-line session server in Python · 87 captured logs · Aug 2026 · findings from my dated research notes",
+  status:"not finished",
+  why:{aiday:"What an agent is like as a research partner on a problem with no documentation. Co-op still doesn't work; the transport underneath it now does.",
+       godo:"\"I don't know yet, I'll find out\", every day for a week and a half. Each wrong theory was killed with a capture, not an opinion.",
+       security:"The closest thing I have to SOC work: start from logs, form a theory, capture evidence, and write down what was ruled out. It also taught me to distrust a fix that hides the symptom.",
+       all:"The hardest thing here, and the only one that isn't finished."},
+  order:{aiday:5,godo:6,security:1,all:3}},
+
+{ id:"ww", title:"Word Wizard", kind:"Mobile app · Flutter · pre-launch", img:"assets/wordwizard.png", alt:"Word Wizard app artwork",
+  what:"An offline vocabulary app for fluent English speakers: a 740,000-entry dictionary, spaced-repetition flashcards, and daily crosswords built from the words you're learning.",
+  points:["Dictionary built by my own pipeline from a Wiktionary extract","Premium, accounts, groups and a leaderboard on Supabase and RevenueCat","The 464 MB dictionary broke Google Play's size cap, so it ships as an install-time asset pack and the base app stays near 40 MB","Account deletion, privacy policy and terms are built, not postponed"],
+  stack:["Flutter","Dart","SQLite","Supabase","RevenueCat","Python"],
+  ev:'<a href="https://wordwizard.wcgill.com">wordwizard.wcgill.com</a> (landing page live) · private repo ClainBill/word-wizard · 21 commits, 6–28 Sep 2026 · 55,299 lines of Dart · store testing still to do',
+  status:"pre-launch",
+  why:{aiday:"The biggest thing I've directed an agent to build: 55,000 lines, with a paywall and a backend.",
+       godo:"A product with a price on it. The paywall, the free tier and the cost of every AI call were product decisions before they were code.",
+       security:"Accounts, entitlements and a payment webhook: the AI key stays on the server behind an edge function, never in the app.",
+       all:"A full product: content pipeline, app, backend, website."},
+  order:{aiday:3,godo:4,security:5,all:4}},
+
+{ id:"cross", title:"Crosswordler", kind:"Algorithm · LLM pipeline · Python", img:null,
+  what:"The crossword generator behind Word Wizard. It builds a personalised 5×5, 9×9 or 17×17 puzzle around the words a learner is studying, offline, in about a fifth of a second.",
+  points:["Median generation 0.13s / 0.14s / 0.20s by size","16,448 clues written by an LLM once, then cached and committed, because regenerating costs money","An LLM editor reviews finished puzzles, with a hard time limit so it can't stall one","A playable test bench shows where each clue came from and lets a human rate it"],
+  stack:["Python","WordNet","LLM batch jobs","pytest"],
+  ev:"local repo Crosswordler · 30 commits, 7–9 Sep 2026 · 5,761 lines of Python · timings from README",
+  why:{aiday:"Where to put the model: at build time, once, cached. Not on every request.",
+       godo:"Commercial instinct in one decision: pay for the LLM once and ship the result, so the feature costs nothing to run.",
+       security:"A validator sits between the model and the user. It caught two gaps the LLM's own output exposed.",
+       all:"Three days from brief to a spec another agent could port."},
+  order:{aiday:4,godo:2,security:8,all:5}},
+
+{ id:"schol", title:"Scholarship agent", kind:"AI agent · prototype", img:null,
+  what:"An agent that finds scholarships, judges whether I'm eligible, fills in the simple applications in a real browser, and stops to ask me when it reaches an essay or a question it can't answer.",
+  points:["Matching is batched ten at a time, because one call per scholarship blew through the free tier's rate limit","Essay drafts may only use facts from my profile, and wait for my approval","A run log shows every step the agent took"],
+  stack:["Next.js","AI SDK","Gemini 2.5 Flash","Stagehand","Firecrawl","Postgres"],
+  ev:"local repo Scholarship Scraper · Aug 2026 · details from src/lib/matching.ts, essay.ts, ai-retry.ts, browser-agent.ts",
+  status:"prototype",
+  why:{aiday:"A browser agent with a brake: it knows which steps are its job and which are mine.",
+       godo:"A process with money at the end of it, automated up to the point where a person's judgement is the product.",
+       security:"Human approval is enforced in the flow, not left to the model's good behaviour.",
+       all:"An agent with a human approval step built in."},
+  order:{aiday:6,godo:5,security:9,all:8}},
+
+{ id:"lizzy", title:"Lizzy Lee's Rock Cafe", kind:"Business system · Python · 2023", img:"assets/lizzy.png", alt:"Lizzy Lee's management system showing a record list",
+  what:"My A-Level project, written by hand before AI coding tools. A real music cafe ran on paper; I investigated how it worked and built one desktop system for its stock, staff, customers, students and lesson bookings.",
+  points:["2,679 lines, standard library only: the exam board fixed Python at 3.4.2","Login with role-based users, date-range filtering, a SQLite data layer","315-page write-up covering investigation, design, testing and evaluation","85/100, the highest mark my teacher had seen for the project"],
+  stack:["Python 3.4.2","Tkinter","SQLite"],
+  ev:'<a href="https://github.com/ClainBill/Lizzy-Lees-Computer-Science-A-Level-WJEC-Submission">public repo on GitHub</a> with the full write-up · 2023',
+  why:{aiday:"The control group: what I could build with no AI at all.",
+       godo:"Getting inside a business and mapping how the work flows, before I had any AI to help.",
+       security:"Written by hand, with authentication and role-based access in the design from the start.",
+       all:"Proof I can do it the slow way."},
+  order:{aiday:8,godo:7,security:6,all:6}},
+
+{ id:"todaii", title:"Todaii Character Count", kind:"Chrome extension · JavaScript", img:null,
+  what:"My Japanese class wants a log of everything I read. Filling in the row took longer than choosing an article, so I stopped wanting to read. This extension counts the characters on a Japanese news site and turns logging into two clicks and a paste.",
+  points:["Counts come from the site's own API, four requests at a time, cached for good","Furigana readings are stripped so they aren't counted twice","No dependencies and no build step"],
+  stack:["JavaScript","Chrome MV3","MutationObserver"],
+  ev:"local folder TodaiiWordCountExtension · Oct 2026 · behaviour from README and background.js",
+  why:{aiday:"A small one: an afternoon with an agent to remove a chore I had every day.",
+       godo:"The smallest version of the job: spot the step that costs more than the work it supports, and delete it.",
+       security:"Reads a third-party API politely: four requests at a time, and each article is fetched once.",
+       all:"Admin time turned into two clicks."},
+  order:{aiday:7,godo:8,security:10,all:9}},
+
+{ id:"lilos", title:"Lil'OS", kind:"Systems · C++", img:"assets/lilos.png", px:true, alt:"Lil'OS drawing shapes and text to its framebuffer",
+  what:"A small operating-system shell for embedded hardware. Every pixel goes through a framebuffer I own, behind a hardware abstraction layer, so the same code draws to a laptop window or a real display.",
+  points:["Shape and text renderers with a 5×7 bitmap font","SDL2 backend for testing on a PC","App class and app manager with an update, input, render loop"],
+  stack:["C++","CMake","SDL2","Python"],
+  ev:'<a href="https://github.com/ClainBill/LilOS">public repo on GitHub</a> · 12 commits, Jul 2026',
+  why:{aiday:"Where I go to learn what the agents are standing on.",
+       godo:"Not a business tool. It's here to show I can read and fix code at any level.",
+       security:"Low-level C++: memory I manage, a hardware boundary I designed.",
+       all:"The one my old portfolio was named after."},
+  order:{aiday:10,godo:11,security:4,all:7}},
+
+{ id:"gid", title:"Get It Done", kind:"Mobile app · Flutter", img:null,
+  what:"A calendar-first task app for Android. I'd tried full GTD systems and dropped them because capturing a task took too many decisions, so this one asks plain questions later instead.",
+  points:["Staged reminders, place and person triggers, natural-language quick add","Built from a spec I keep in my notes, tested on an emulator from my written feedback","About 70 automated tests"],
+  stack:["Flutter","Dart","SQLite"],
+  ev:"local repo Get It Done · 13 commits, 16 Oct 2026 · 28,016 lines of Dart",
+  why:{aiday:"Spec in, app out, then a feedback file the agent reads at the start of every session.",
+       godo:"Designed around where the old process failed, not around a feature list.",
+       security:"Tested the way I'd want any change tested: on a device, against written feedback, before it counts as done.",
+       all:"The app I wanted and couldn't find."},
+  order:{aiday:9,godo:9,security:11,all:10}},
+
+{ id:"ball", title:"Airless basketball", kind:"3D printing · generated geometry", img:"assets/basketball.png", alt:"Render of a honeycomb lattice basketball",
+  what:"A full-size airless basketball for a Prusa XL, generated by Python scripts and finished in Blender with no hand modelling.",
+  points:["630 hexagonal and 12 pentagonal cells in one connected shell","Exported mesh checked: 192,000 triangles, no non-manifold edges","Not printed yet. No bounce test has been done, and the notes say so"],
+  stack:["Python","trimesh","Blender"],
+  ev:"local folder 3dPrintBasketball · Sep 2026 · figures from PRINT_NOTES.md",
+  status:"untested",
+  why:{aiday:"An agent driving Blender from the command line, with a mesh validator as its referee.",
+       godo:"AI outside of text and code: a physical part, with the checks that can be automated, automated.",
+       security:"A build, finish, package, validate pipeline where the validation is a file, not a feeling.",
+       all:"Geometry from code."},
+  order:{aiday:11,godo:10,security:12,all:11}},
+];
+
+/* ── Lens copy ───────────────────────────────────────────────────────────── */
+const L = {
+aiday:{
+  eyebrow:"BYU AI Day · 16 November 2026 · Garden Court",
+  h1:"I build with AI agents. Then I make them <em>prove it</em>.",
+  lede:"I'm William, a computer science student at BYU from Wales. Since July I've built fifteen projects with AI coding agents, from a calculator emulator to a live podcast site. What I've learned is that the agent is rarely the hard part. The check is.",
+  cta:[["See the table demo","#ti84",1],["Email me","mailto:willcharlesgill@gmail.com"]],
+  facts:[["15","projects since July 2026"],["1.6M","CPU tests the emulator passes"],["3","sites live today"],["3","languages: English, Japanese, Welsh"]],
+  fitEyebrow:"If you have two minutes at my table",
+  fitTitle:"What to ask me about",
+  fitSub:"Pick the row closest to what your team does.",
+  fit:[
+    ["Agents that test their own work","You build developer tools or QA",'<a href="#ti84">ti84emu</a>: an agent writes a game, compiles it in an emulator, plays it and reads the screen. About half a second per attempt.'],
+    ["AI inside a real workflow","You automate operations",'<a href="#sink">Sink Alike</a>: speech-to-text and speaker detection turn a published episode into a searchable page. It costs a domain name to run.'],
+    ["LLM cost and placement","You ship AI features to customers",'<a href="#cross">Crosswordler</a>: 16,448 clues generated once and cached, so the feature costs nothing per user.'],
+    ["A shipped product","You want someone who finishes",'<a href="#ww">Word Wizard</a>: 55,000 lines of Flutter with a paywall, a backend and a landing page.'],
+    ["Hard problems with no docs","You do security or systems work",'<a href="#bb">Bloodborne co-op</a>: a network protocol worked out from packet captures and disassembly. Still unsolved, and I can tell you exactly where.'],
+  ],
+  work:"What's on the table"},
+godo:{
+  eyebrow:"For GoDo Labs · AI Transformation Analyst",
+  h1:"You said think fifty. I'm at <em>fifteen</em> since July.",
+  lede:"Your posting asks for someone who already uses AI to do in hours what takes others days, and who looks at a process and asks what it's worth. I'm a BYU computer science student who has spent five months doing that on my own time. Here is the evidence, with the source for each claim.",
+  cta:[["The one thing I'd send","#sink",1],["Email me","mailto:willcharlesgill@gmail.com"]],
+  facts:[["15","projects built with AI since July 2026"],["£8–10","a year to run a live site with auth, comments and analytics"],["16,448","LLM clues bought once, then cached"],["0.2s","to generate a crossword, offline"]],
+  fitEyebrow:"Your posting, line by line",
+  fitTitle:"What you bring → what I've done",
+  fitSub:"Left column is quoted from the job description. Right column links to the project that backs it.",
+  fit:[
+    ["AI tooling fluency","\"This matters most.\"",'Fifteen projects in five months, around a sales job and then classes. <a href="#ww">Word Wizard</a> alone is 55,299 lines across 21 commits in three weeks.'],
+    ["Technical fluency","Read, troubleshoot and fix scripts and queries",'I found a thread race in someone else\'s C++ networking code from packet logs (<a href="#bb">Bloodborne co-op</a>), and wrote a 2,679-line Python and SQL system by hand before AI tools existed (<a href="#lizzy">Lizzy Lee\'s</a>).'],
+    ["Horsepower","Drop into an unfamiliar business and map it fast",'<a href="#lizzy">Lizzy Lee\'s</a> was a paper-run cafe I mapped into one system. <a href="#sink">Sink Alike</a> maps podcast production from publish to page. On my mission I wrote a 12-week orientation for the mission\'s playbooks.'],
+    ["Commercial instinct","Ask what a process is worth, then capture it",'<a href="#cross">Crosswordler</a> pays for its LLM once. <a href="#sink">Sink Alike</a> streams audio from the podcast host so the site never pays for bandwidth. <a href="#ww">Word Wizard</a> has a paywall and a free tier.'],
+    ["Confidence without all the answers","\"I don't know yet, I'll find out\"",'<a href="#bb">Bloodborne co-op</a> is exactly that, written up with each dead end marked. I also led my team in sales in my first year selling, in a country I\'d just moved to.'],
+    ["Unblock yourself","Debug the script, fix the query, get it working",'When the <a href="#schol">scholarship agent</a> kept failing on a rate limit, I batched the calls ten at a time and added backoff that waits out the window.'],
+  ],
+  work:"Use cases, most relevant first"},
+security:{
+  eyebrow:"For Kaylee Hill · BYU Security Operations",
+  h1:"No security job yet. Here is how I <em>investigate</em>.",
+  lede:"I'm a BYU computer science student with no professional security experience, and I won't dress that up. What I can show you is the habit the work needs: start from the logs, form a theory, capture the evidence that kills or confirms it, and write down what I found.",
+  cta:[["Read the investigation","#bb",1],["Email me","mailto:willcharlesgill@gmail.com"]],
+  facts:[["5,718 → 14","log lines, after the filter I wrote"],["21 → 0","stolen packets, before and after one fix"],["1.6M","CPU instruction tests passed"],["A* / A*","A-Level Computer Science and Maths"]],
+  fitEyebrow:"Your team's work, from infosec.byu.edu",
+  fitTitle:"What the SOC does → where I've done something like it",
+  fitSub:"I've matched each to the nearest thing I've actually done. None of these is the same as doing it on a real network, and I know that.",
+  fit:[
+    ["Security event monitoring","Working with log data to build monitoring and alerts",'For the <a href="#bb">co-op investigation</a> I added one greppable tag across three separate systems so their logs merge into a single ordered transcript, then wrote a script to cut the noise.'],
+    ["Threat hunting","Knowing what normal looks like",'I found a packet-stealing race by learning what a healthy handshake looks like on the wire, packet type by packet type, then spotting the captures that didn\'t match.'],
+    ["Incident investigation","Diagnose, don't guess",'My notes record each theory, the capture that tested it and the result, including the fixes I reverted because they only hid the symptom.'],
+    ["Penetration testing basics","Understanding how systems are actually built",'I\'ve read a stripped x86-64 binary with objdump, resolved its imports by hand, and had a Z80 CPU <a href="#ti84">emulator</a> built with a debugger. I haven\'t done offensive testing.'],
+    ["Abuse and account protection","Phishing, account compromise",'<a href="#sink">Sink Alike</a> takes anonymous input from the public: bot checks, rate-limited sign-in codes and salted IP hashes were in the first version.'],
+    ["Showing up","Reliable, teachable, good with people",'Three jobs through school, two years as a missionary in Tokyo, and a summer of door-to-door sales. I\'m used to being new and learning fast.'],
+  ],
+  work:"Most relevant first"},
+all:{
+  eyebrow:"Provo, Utah · from Anglesey, Wales",
+  h1:"I like knowing how things work, <em>all the way down</em>.",
+  lede:"I'm William, a computer science student at BYU. I build software at every level, from a framebuffer in C++ to a subscription app, and I use AI agents to build more of it than one person should be able to.",
+  cta:[["Start with the work","#projects",1],["Email me","mailto:willcharlesgill@gmail.com"]],
+  facts:[["15","projects since July 2026"],["3","sites live today"],["85/100","A-Level project, written by hand"],["3","languages spoken"]],
+  fitEyebrow:"",fitTitle:"",fitSub:"",fit:[],
+  work:"Projects"}
+};
+
+const $ = id => document.getElementById(id);
+function render(lens){
+  if(!L[lens]) lens = "aiday";
+  const c = L[lens];
+  document.documentElement.dataset.lens = lens;
+  document.querySelectorAll(".lenses button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lens === lens));
+  $("eyebrow").textContent = c.eyebrow;
+  $("headline").innerHTML = c.h1;
+  $("lede").textContent = c.lede;
+  $("cta").innerHTML = c.cta.map(([t,h,p]) => `<a class="btn${p?" primary":""}" href="${h}">${t}</a>`).join("");
+  $("facts").innerHTML = c.facts.map(([n,l]) => `<div><b>${n}</b><span>${l}</span></div>`).join("");
+  $("fit-section").hidden = !c.fit.length;
+  $("fit-eyebrow").textContent = c.fitEyebrow;
+  $("fit-title").textContent = c.fitTitle;
+  $("fit-sub").textContent = c.fitSub;
+  $("fit").innerHTML = c.fit.map(([a,s,p]) => `<div class="row"><div class="ask">${a}<small>${s}</small></div><div class="proof">${p}</div></div>`).join("");
+  $("work-title").textContent = c.work;
+  const label = {aiday:"Why it's here",godo:"Why it matters to GoDo",security:"Why it matters to a SOC",all:"In one line"}[lens];
+  $("projects").innerHTML = [...P].sort((a,b) => a.order[lens]-b.order[lens]).map((p,i) => {
+    const lead = i === 0;
+    const shot = p.img ? `<div class="shot${p.px?" px":""}"><img src="${p.img}" alt="${p.alt}" loading="lazy"></div>` : "";
+    const body = `<div class="body">
+      <div class="kind">${p.kind}</div>
+      <h3>${p.title}${p.status?`<span class="status">${p.status}</span>`:""}</h3>
+      <p>${p.what}</p>
+      <div class="why"><b>${label}</b>${p.why[lens]}</div>
+      <ul>${p.points.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div class="chips">${p.stack.map(s=>`<span>${s}</span>`).join("")}</div>
+      <div class="evidence">Source: ${p.ev}</div></div>`;
+    return `<article class="card${lead?" lead":""}" id="${p.id}">${lead && p.img ? `<div class="inner">${shot}${body}</div>` : shot+body}</article>`;
+  }).join("");
+}
+document.querySelectorAll(".lenses button").forEach(b => b.addEventListener("click", () => {
+  history.replaceState(null,"","?for="+b.dataset.lens);
+  render(b.dataset.lens); window.scrollTo({top:0});
+}));
+render(new URLSearchParams(location.search).get("for") || "aiday");
+</script>
+</body>
+</html>
