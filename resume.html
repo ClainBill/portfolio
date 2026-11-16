@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>William Gill · Resume</title>
+<style>
+@page{size:Letter;margin:0.42in 0.6in}
+*{box-sizing:border-box}
+body{margin:0 auto;max-width:7.3in;padding:0.5in 0;color:#111;font:10.2pt/1.31 "Helvetica Neue",Helvetica,Arial,sans-serif}
+@media print{body{padding:0;max-width:none}}
+h1{font-size:23pt;margin:0;letter-spacing:.01em}
+.contact{margin:3px 0 0;font-size:10pt;color:#222}
+.contact a{color:inherit;text-decoration:none}
+h2{font-size:10pt;letter-spacing:.11em;text-transform:uppercase;color:#0b3d91;border-bottom:1px solid #0b3d91;margin:9px 0 4px;padding-bottom:2px}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:4px}
+.row b{font-size:10.5pt}
+.row span{white-space:nowrap;color:#333;font-size:9.6pt}
+.meta{color:#333;font-style:italic;font-size:9.6pt}
+ul{margin:2px 0 0;padding-left:15px}
+li{margin:1px 0}
+p{margin:0}
+.skills p{margin:2px 0}
+a{color:#0b3d91}
+</style>
+</head>
+<body>
+
+<h1>William Gill</h1>
+<p class="contact">Provo, Utah · <a href="mailto:willcharlesgill@gmail.com">willcharlesgill@gmail.com</a> · +1 (385) 208-2924 · <a href="https://wcgill.com">wcgill.com</a> · <a href="https://github.com/ClainBill">github.com/ClainBill</a></p>
+
+<h2>Summary</h2>
+<p>Computer science student at BYU who builds complete software, from a business system written by hand in Python to a 55,000-line mobile app with a backend and paywall. Uses AI coding agents daily and verifies their work with tests. Speaks Japanese after two years in Tokyo.</p>
+
+<h2>Projects</h2>
+
+<div class="row"><b>Lizzy Lee's Rock Cafe · business management system</b><span>2023</span></div>
+<p class="meta">Python 3.4, Tkinter, SQLite · github.com/ClainBill/Lizzy-Lees-Computer-Science-A-Level-WJEC-Submission</p>
+<ul>
+  <li>Replaced a music cafe's paper records with one system for stock, staff, customers and lesson bookings.</li>
+  <li>Wrote all 2,679 lines by hand using only the standard library, including role-based login and a database layer.</li>
+  <li>Documented the full lifecycle in a 315-page write-up; scored 85/100, the highest mark my teacher had seen.</li>
+</ul>
+
+<div class="row"><b>Word Wizard · offline vocabulary app</b><span>2026</span></div>
+<p class="meta">Flutter, Dart, SQLite, Supabase, RevenueCat, Python · wordwizard.wcgill.com · github.com/ClainBill/word-wizard</p>
+<ul>
+  <li>Built a 740,000-entry offline dictionary from a Wiktionary extract with my own Python pipeline.</li>
+  <li>Added spaced-repetition flashcards and a crossword generator that builds a puzzle in about 0.2 seconds.</li>
+  <li>Cut the base app from 232 MB to about 40 MB by shipping the dictionary as an install-time asset pack.</li>
+</ul>
+
+<div class="row"><b>Lil'OS · micro operating system for embedded hardware</b><span>2026</span></div>
+<p class="meta">C++, CMake, SDL2 · github.com/ClainBill/LilOS</p>
+<ul>
+  <li>Wrote shape and bitmap-font text renderers that draw every pixel to my own framebuffer.</li>
+  <li>Put a hardware abstraction layer under it, so the same code runs in a desktop window or on a display.</li>
+</ul>
+
+<div class="row"><b>Sink Alike · podcast website and production pipeline</b><span>2026</span></div>
+<p class="meta">Astro, Cloudflare Workers, D1, Whisper · sink-alike.wcgill.com · github.com/ClainBill/sinkalike</p>
+<ul>
+  <li>Automated publishing: daily RSS sync, local speech-to-text with speaker detection, searchable transcripts.</li>
+  <li>Runs for the cost of a domain, with bot checks and rate limits on every public form.</li>
+</ul>
+
+<h2>Experience</h2>
+
+<div class="row"><b>Independent Contractor, Sales</b> <span>Richmond, Virginia · Apr – Aug 2026</span></div>
+<ul>
+  <li>Led my team in sales in my first year selling, months after moving to a new country.</li>
+  <li>Set my own schedule through long days in 100°F heat and reported results and plans to my team leader.</li>
+</ul>
+
+<div class="row"><b>Missionary</b> <span>Tokyo, Japan · Jan 2024 – Jan 2026</span></div>
+<ul>
+  <li>Created a 12-week orientation programme teaching new missionaries to use the mission's internal playbooks.</li>
+  <li>Helped develop and roll out a mission-wide vision for a new mission president; taught daily in Japanese.</li>
+</ul>
+
+<div class="row"><b>Crew Member, McDonald's</b> <span>Bangor, Wales · May 2021 – Dec 2023</span></div>
+<ul>
+  <li>Resolved customer complaints, trained new crew, and met speed and accuracy targets at peak.</li>
+</ul>
+
+<div class="row"><b>Assistant Hotelier and Landscaper, Bryn Aethwy</b> <span>Menai Bridge, Wales · Jan 2020 – Dec 2023</span></div>
+<ul>
+  <li>Ran guest check-ins and same-day changeovers for a three-storey property; built stone retaining walls.</li>
+</ul>
+
+<h2>Education</h2>
+<div class="row"><b>Brigham Young University</b> <span>Provo, Utah · 2026 – present</span></div>
+<p>Computer Science</p>
+<div class="row"><b>Ysgol Gyfun Llangefni</b> <span>Anglesey, Wales · 2016 – 2023</span></div>
+<p>A Levels: Computer Science A*, Maths A*, Physics A. GCSEs: five A* including Maths and Computer Science.</p>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>Languages:</b> Python, C++, C, Dart, JavaScript, TypeScript, SQL</p>
+  <p><b>Tools:</b> Git, Flutter, SQLite, Cloudflare Workers, Supabase, Linux and macOS command line, Claude Code</p>
+  <p><b>Spoken:</b> English, Japanese, Welsh</p>
+</div>
+
+</body>
+</html>

@@ -6,3 +6,5 @@ wrangler.jsonc
 node_modules
 .wrangler
 .DS_Store
+resume.html
+*.pdf

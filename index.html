@@ -403,7 +403,7 @@ function render(lens){
   $("fit").innerHTML = c.fit.map(([a,s,p]) => `<div class="row"><div class="ask">${a}<small>${s}</small></div><div class="proof">${p}</div></div>`).join("");
   $("work-title").textContent = c.work;
   const label = {aiday:"Why it's here",godo:"Why it matters to GoDo",security:"Why it matters to a SOC",all:"In one line"}[lens];
-  const FIRST = ["lizzy","ww","bb"];
+  const FIRST = ["lizzy","ww","lilos"];
   const rank = p => FIRST.includes(p.id) ? FIRST.indexOf(p.id) : FIRST.length + p.order[lens];
   $("projects").innerHTML = [...P].sort((a,b) => rank(a)-rank(b)).map((p,i) => {
     const lead = i === 0;
